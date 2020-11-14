@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Mapbox API
-config.js 
+config.js

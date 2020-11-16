@@ -43,4 +43,12 @@ d3.json(usga_url, function (data) {
                 return "#00FFFB";
         }
     }
+
+    function getRadius (mag) {
+        if (mag === 0) {
+            return 1;
+        }
+
+        return mag * 4;
+    }
 });

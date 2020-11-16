@@ -18,5 +18,16 @@ var usga_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_we
 // Calling the URL 
 d3.json(usga_url, function(data){
     console.log(data)
+    function infoStyle (feature) {
+        return {
+            Opacity: 1,
+            fillOpacity: 1,
+            fillColor: getColor(feature.properties.mag),
+            color: "#000000",
+            radius: getRadius(features.properties.mag),
+            stroke: true, 
+            weight: 0.5
+        };
+      }
 });
     

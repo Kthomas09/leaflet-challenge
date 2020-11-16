@@ -24,7 +24,7 @@ d3.json(usga_url, function (data) {
             fillOpacity: 1,
             fillColor: getColor(feature.properties.mag),
             color: "#000000",
-            radius: getRadius(features.properties.mag),
+            radius: getRadius(feature.properties.mag),
             stroke: true,
             weight: 0.5
         };
@@ -48,7 +48,16 @@ d3.json(usga_url, function (data) {
         if (mag === 0) {
             return 1;
         }
-
         return mag * 4;
     }
+
+    L.geoJson(data, {
+        pointToLayer: function(feature, lating) {
+            return L.circleMarker(lating);
+        },
+        style: infoStyle,
+        onEachFeature: function(feature, layer) {
+            layer.bindPopup("Magnitude: " + feature.properties.mag + "<br> Location: " + feature.properties.place);
+        }
+    }).addTo(earthquakeMap)
 });

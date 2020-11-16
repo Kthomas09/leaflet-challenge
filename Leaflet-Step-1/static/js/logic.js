@@ -59,5 +59,5 @@ d3.json(usga_url, function (data) {
         onEachFeature: function(feature, layer) {
             layer.bindPopup("Magnitude: " + feature.properties.mag + "<br> Location: " + feature.properties.place);
         }
-    }).addTo(earthquakeMap)
+    }).addTo(earthquakeMap);
 });

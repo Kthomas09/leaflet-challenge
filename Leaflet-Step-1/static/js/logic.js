@@ -55,7 +55,19 @@ var earthquakeMap = L.map("map_id", {
     if (mag === 0) {
       return 1;
     }
-  
     return mag * 4;
   }
+  // GeoJSON layer
+  L.geoJson(data, {
+    // Make cricles
+    pointToLayer: function(feature, lat_long) {
+      return L.circleMarker(lat_long);
+    },
+    // circles style
+    style: styleInfo,
+    // popup for each marker
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+    }
+  }).addTo(earthquakeMap);
 });

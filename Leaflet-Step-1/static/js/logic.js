@@ -99,5 +99,5 @@ d3.json(USGS_link, function (data) {
   return div;
 });
 
-// Finally, we our legend to the map.
+// Finally, placing legend to the map.
 legend.addTo(earthquakeMap);

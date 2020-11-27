@@ -22,8 +22,7 @@ var earthquakeMap = L.map("map_id", {
   
   //  GET color radius call to the USGS Link
   d3.json(USGS_link, function(data) {
-    console.log(data)
-  function styleInfo(feature) {
+  function styleInformation(feature) {
     return {
       opacity: 1,
       fillOpacity: 1,
@@ -33,5 +32,22 @@ var earthquakeMap = L.map("map_id", {
       stroke: true,
       weight: 0.5
     };
+  }
+  // set different color from magnitude
+  function getColor(mag) {
+    switch (true) {
+    case mag > 5:
+      return "#ea2c2c";
+    case mag > 4:
+      return "#ea822c";
+    case mag > 3:
+      return "#ee9c00";
+    case mag > 2:
+      return "#eecc00";
+    case mag > 1:
+      return "#d4ee00";
+    default:
+      return "#98ee00";
+    }
   }
 });

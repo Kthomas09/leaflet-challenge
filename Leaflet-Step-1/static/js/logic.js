@@ -90,4 +90,14 @@ d3.json(USGS_link, function (data) {
       "#ea2c2c"
     ];
   };
-}); 
+  // Looping through
+  for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+      "<i style='background: " + colors[i] + "'></i> " +
+      grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
+  }
+  return div;
+});
+
+// Finally, we our legend to the map.
+legend.addTo(earthquakeMap);

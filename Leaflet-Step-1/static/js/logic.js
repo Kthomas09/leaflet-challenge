@@ -50,4 +50,12 @@ var earthquakeMap = L.map("map_id", {
       return "#98ee00";
     }
   }
+  // set radiuss from magnitude
+  function getRadius(mag) {
+    if (mag === 0) {
+      return 1;
+    }
+  
+    return mag * 4;
+  }
 });

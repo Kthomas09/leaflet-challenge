@@ -16,3 +16,22 @@ var earthquakeMap = L.map("map_id", {
     id: "mapbox/streets-v11",
     accessToken: API_KEY
   }).addTo(earthquakeMap);
+
+  // Store the API endpoint for all Earthquakes +1.0 magnitude
+  var USGS_link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/1.0_month.geojson";
+  
+  //  GET color radius call to the USGS Link
+  d3.json(USGS_link, function(data) {
+    console.log(data)
+  function styleInfo(feature) {
+    return {
+      opacity: 1,
+      fillOpacity: 1,
+      fillColor: getColor(feature.properties.mag),
+      color: "#000000",
+      radius: getRadius(feature.properties.mag),
+      stroke: true,
+      weight: 0.5
+    };
+  }
+});

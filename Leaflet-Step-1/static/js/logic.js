@@ -64,7 +64,7 @@ var earthquakeMap = L.map("map_id", {
       return L.circleMarker(lat_long);
     },
     // circles style
-    style: styleInfo,
+    style: styleInformation,
     // popup for each marker
     onEachFeature: function(feature, layer) {
       layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
